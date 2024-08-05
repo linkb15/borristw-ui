@@ -4,8 +4,11 @@
 		"outDir": "dist",
 		"strict": false,
 		"noUnusedLocals": false,
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
 
-		"noUnusedParameters": false
+		"noUnusedParameters": false,
+
 	},
 	"include": ["source"]
 }
