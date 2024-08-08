@@ -23,12 +23,12 @@ export default {
           to: { height: '0' },
         },
         'slide-down': {
-          from: { height: '0' },
-          to: { height: 'var(--height)' },
+          from: { maxHeight: 'var(--start-height)' },
+          to: { maxHeight: 'var(--height)' },
         },
         'slide-up': {
-          from: { height: 'var(--height)' },
-          to: { height: '0' },
+          from: { maxHeight: 'var(--height)' },
+          to: { maxHeight: 'var(--start-height)' },
         },
       },
       animation: {

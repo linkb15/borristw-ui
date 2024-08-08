@@ -4,25 +4,57 @@ description: A vertically stacked set of interactive headings that each reveal a
 ---
 
 import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
-import { ButtonWrapper } from '@/components/button-wrapper';
 import { CodeBlockWrapper } from '@/components/code-block-wrapper';
 import { Code } from '@astrojs/starlight/components';
-import importedCode from '@/components/ui/accordion.tsx?raw';
+import sourceCode from '@/components/ui/accordion.tsx?raw';
+import previewCode from '@/components/demo/accordion-basic.tsx?raw';
+
+import PackageManagerTabs from '@/components/package-manager-tabs.astro';
+import { Basic } from '@/components/demo/accordion-basic';
 
 A vertically stacked set of interactive headings that each reveal a section of content.
 
-## Installation
+<Tabs>
+  <TabItem label="Preview">
+    <div className="not-content rounded-sm p-10 flex min-h-[350px] items-center justify-center">
+      <Basic client:load />
+    </div>
+  </TabItem>
+  <TabItem label="Code">
+    <CodeBlockWrapper client:load>
+      <Code
+        class="mb-4 mt-4 max-h-[650px] min-h-32 overflow-x-auto rounded-lg relative text-sm"
+        code={previewCode}
+        lang="tsx"
+      />
+    </CodeBlockWrapper>
+  </TabItem>
+</Tabs>
 
-<ButtonWrapper client:load />
+## Installation
 
 <Tabs>
   <TabItem label="CLI">
     <Steps>
       1.  Run the following command:
 
-          ```bash
-          npx borristw-ui@latest add accordion
-          ```
+          <PackageManagerTabs>
+            <Fragment slot="npm">
+            ```bash frame="none"
+            npx borristw-ui@latest add accordion
+            ```
+            </Fragment>
+            <Fragment slot="pnpm">
+            ```bash frame="none"
+            pnpm dlx borristw-ui@latest add accordion
+            ```
+            </Fragment>
+            <Fragment slot="yarn">
+            ```bash frame="none"
+            npx borristw-ui@latest add accordion
+            ```
+            </Fragment>
+          </PackageManagerTabs>
 
       2.  Update `tailwind.config.js`
 
@@ -61,10 +93,18 @@ A vertically stacked set of interactive headings that each reveal a section of c
       1.  Install the following dependencies:
 
           ```bash
-          npm install @radix-ui/react-accordion
+          npm install @ark-ui/react
           ```
 
       2.  Copy and paste the following code into your project.
+
+          <CodeBlockWrapper client:load>
+            <Code
+              class="mb-4 max-h-[650px] min-h-32 overflow-x-auto rounded-lg relative text-sm"
+              code={sourceCode}
+              lang="tsx"
+            />
+          </CodeBlockWrapper>
 
       3.  Update the import paths to match your project setup.
 

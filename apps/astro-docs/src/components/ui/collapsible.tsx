@@ -10,22 +10,22 @@ import {
 
 const Collapsible = CollapsiblePrimitive.Root;
 
-const CollapsibleContent = CollapsiblePrimitive.Content
+// const CollapsibleContent = CollapsiblePrimitive.Content
 
-// const CollapsibleContent = forwardRef<
-//   ElementRef<typeof CollapsiblePrimitive.Content>,
-//   ComponentPropsWithoutRef<typeof CollapsiblePrimitive.Content>
-// >(({ className, ...props }, ref) => (
-//   <CollapsiblePrimitive.Content
-//     ref={ref}
-//     className={cn(
-//       'data-[state=open]:animate-slide-down data-[state=closed]:animate-slide-up',
-//       className,
-//     )}
-//     {...props}
-//   />
-// ));
-// CollapsibleContent.displayName = CollapsiblePrimitive.Content.displayName;
+const CollapsibleContent = forwardRef<
+  ElementRef<typeof CollapsiblePrimitive.Content>,
+  ComponentPropsWithoutRef<typeof CollapsiblePrimitive.Content>
+>(({ className, ...props }, ref) => (
+  <CollapsiblePrimitive.Content
+    ref={ref}
+    className={cn(
+      'data-[state=open]:animate-slide-down data-[state=closed]:animate-slide-up',
+      className,
+    )}
+    {...props}
+  />
+));
+CollapsibleContent.displayName = CollapsiblePrimitive.Content.displayName;
 
 const CollapsibleTrigger = CollapsiblePrimitive.Trigger;
 

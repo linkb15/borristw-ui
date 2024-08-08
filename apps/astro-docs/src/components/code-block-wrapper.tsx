@@ -23,17 +23,9 @@ export function CodeBlockWrapper({
   const [isOpened, setIsOpened] = React.useState(false);
 
   return (
-    <Collapsible
-      // lazyMount
-      // unmountOnExit
-      className="min-h-32"
-      open={isOpened}
-      onOpenChange={({ open }) => setIsOpened(open)}
-    >
+    <Collapsible open={isOpened} onOpenChange={({ open }) => setIsOpened(open)}>
       <div className={cn('relative overflow-hidden', className)} {...props}>
-        <CollapsibleContent
-          className={cn('overflow-hidden', !isOpened && 'max-h-32 block')}
-        >
+        <CollapsibleContent className="block [--start-height:8rem] data-[state=closed]:max-h-32 overflow-hidden">
           <div
             className={cn(
               '[&_pre]:my-0 [&_pre]:max-h-[650px] [&_pre]:pb-[100px]',
@@ -46,7 +38,7 @@ export function CodeBlockWrapper({
 
         <div
           className={cn(
-            'absolute flex items-center z-10 justify-center bg-gradient-to-b from-zinc-700/30 to-zinc-950/90 p-2',
+            'absolute flex items-center z-10 justify-center bg-gradient-to-b from-zinc-300/30 to-zinc-50/90 dark:from-zinc-700/30 dark:to-zinc-950/90 p-2',
             isOpened ? 'inset-x-0 bottom-0 h-12' : 'inset-0',
           )}
         >
