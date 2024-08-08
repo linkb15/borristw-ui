@@ -6,6 +6,8 @@ description: A vertically stacked set of interactive headings that each reveal a
 import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
 import { ButtonWrapper } from '@/components/button-wrapper';
 import { CodeBlockWrapper } from '@/components/code-block-wrapper';
+import { Code } from '@astrojs/starlight/components';
+import importedCode from '@/components/ui/accordion.tsx?raw';
 
 A vertically stacked set of interactive headings that each reveal a section of content.
 
@@ -99,10 +101,6 @@ A vertically stacked set of interactive headings that each reveal a section of c
 </Tabs>
 
 ## Usage
-
-<CodeBlockWrapper client:load>
-  <div className='min-h-screen'>Test</div>
-</CodeBlockWrapper>
 
 ```tsx
 import {
