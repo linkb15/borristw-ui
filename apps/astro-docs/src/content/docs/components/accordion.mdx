@@ -18,7 +18,8 @@ import { Basic } from '@/components/demo/accordion-basic';
 import { CodeBlockWrapper } from '@/components/code-block-wrapper';
 
 import DocsBadges from '@/components/docs-badges.astro';
-import PackageManagerTabs from '@/components/package-manager-tabs.astro';
+import ComponentPreview from '@/components/component-preview.astro';
+import PackageManagers from '@/components/package-managers/package-managers.astro';
 
 import sourceCode from '@/components/ui/accordion.tsx?raw';
 import previewCode from '@/components/demo/accordion-basic.tsx?raw';
@@ -33,20 +34,9 @@ of content.
   }}
 />
 
-<Tabs>
-  <TabItem label="Preview">
-    <div className="not-content rounded-sm p-10 flex min-h-[350px] items-center justify-center">
-      <Basic client:load />
-    </div>
-  </TabItem>
-  <TabItem label="Code">
-    <Code
-      class="max-h-[650px] overflow-auto rounded-lg"
-      code={previewCode}
-      lang="tsx"
-    />
-  </TabItem>
-</Tabs>
+<ComponentPreview code={previewCode}>
+  <Basic client:load />
+</ComponentPreview>
 
 ## Installation
 
@@ -55,29 +45,13 @@ of content.
     <Steps>
       1.  Run the following command:
 
-          <PackageManagerTabs>
-            <Fragment slot="npm">
-            ```bash frame="none"
-            npx borristw-ui@latest add accordion
-            ```
-            </Fragment>
-            <Fragment slot="pnpm">
-            ```bash frame="none"
-            pnpm dlx borristw-ui@latest add accordion
-            ```
-            </Fragment>
-            <Fragment slot="yarn">
-            ```bash frame="none"
-            npx borristw-ui@latest add accordion
-            ```
-            </Fragment>
-          </PackageManagerTabs>
+          <PackageManagers pkg="borristw-ui@latest" type="exec" args="add accordion" frame="none" />
 
       2.  Update `tailwind.config.js`
 
           Add the following animations to your `tailwind.config.js` file:
 
-          ```diff lang="js" title="tailwind.config.js" ins={5-18}
+          ```diff lang="js" title="tailwind.config.js" {5-18}
           /** @type {import('tailwindcss').Config} */
           module.exports = {
             theme: {
@@ -108,23 +82,7 @@ of content.
     <Steps>
       1.  Install the following dependencies:
 
-          <PackageManagerTabs>
-            <Fragment slot="npm">
-            ```bash frame="none"
-            npm i @ark-ui/react
-            ```
-            </Fragment>
-            <Fragment slot="pnpm">
-            ```bash frame="none"
-            pnpm i @ark-ui/react
-            ```
-            </Fragment>
-            <Fragment slot="yarn">
-            ```bash frame="none"
-            yarn add @ark-ui/react
-            ```
-            </Fragment>
-          </PackageManagerTabs>
+          <PackageManagers pkg="@ark-ui/react" frame="none" />
 
       2.  Copy and paste the following code into your project.
 
@@ -142,7 +100,7 @@ of content.
 
           Add the following animations to your `tailwind.config.js` file:
 
-          ```diff lang="js" title="tailwind.config.js" ins={5-18}
+          ```diff lang="js" title="tailwind.config.js" {5-18}
           /** @type {import('tailwindcss').Config} */
           module.exports = {
             theme: {

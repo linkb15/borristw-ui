@@ -1,0 +1,134 @@
+---
+title: Button
+description: Displays a button or a component that looks like a button.
+---
+
+import {
+  Steps,
+  Tabs,
+  TabItem,
+  Code,
+  LinkCard,
+  CardGrid,
+  Icon,
+  Badge,
+} from '@astrojs/starlight/components';
+
+import { Basic } from '@/components/demo/button-basic';
+import { ButtonVariants } from '@/components/demo/button-variants';
+import demoVariantsCode from '@/components/demo/button-variants?raw';
+import { ButtonSizes } from '@/components/demo/button-sizes';
+import demoSizesCode from '@/components/demo/button-sizes?raw';
+import { ButtonAsChild } from '@/components/demo/button-as-child';
+import demoAsChildCode from '@/components/demo/button-as-child?raw';
+import { CodeBlockWrapper } from '@/components/code-block-wrapper';
+
+import DocsBadges from '@/components/docs-badges.astro';
+import ComponentPreview from '@/components/component-preview.astro';
+import PackageManagers from '@/components/package-managers/package-managers.astro';
+
+import sourceCode from '@/components/ui/button.tsx?raw';
+import previewCode from '@/components/demo/button-basic.tsx?raw';
+
+Displays a button or a component that looks like a button.
+
+<Tabs>
+  <TabItem label="Preview">
+    <div className="not-content rounded-sm p-10 flex min-h-[350px] items-center justify-center">
+      <Basic client:load />
+    </div>
+  </TabItem>
+  <TabItem label="Code">
+    <Code
+      class="max-h-[650px] overflow-auto rounded-lg"
+      code={previewCode}
+      lang="tsx"
+    />
+  </TabItem>
+</Tabs>
+
+## Installation
+
+<Tabs>
+  <TabItem label="CLI">
+    <PackageManagers pkg="borristw-ui@latest" type="exec" args="add button" frame="none" />
+  </TabItem>
+
+  <TabItem label="Manual">
+    <Steps>
+      1.  Install the following dependencies:
+
+          <PackageManagers pkg="@ark-ui/react" frame="none" />
+
+      2.  Copy and paste the following code into your project.
+
+          <CodeBlockWrapper client:load>
+            <Code
+              class="mb-4 max-h-[650px] min-h-32 overflow-x-auto rounded-lg relative text-sm"
+              code={sourceCode}
+              lang="tsx"
+            />
+          </CodeBlockWrapper>
+
+      3.  Update the import paths to match your project setup.
+
+    </Steps>
+
+  </TabItem>
+</Tabs>
+
+## Usage
+
+```tsx
+import { Button } from '@/components/ui/button';
+```
+
+```tsx
+<Button variant="outline">Button</Button>
+```
+
+## Link
+
+You can use the `buttonVariants` helper to create a link that looks like a button.
+
+```tsx
+import { buttonVariants } from '@/components/ui/button';
+```
+
+```tsx
+<Link className={buttonVariants({ variant: 'outline' })}>Click here</Link>
+```
+
+Alternatively, you can set the `asChild` parameter and nest the link component.
+
+```tsx
+<Button asChild>
+  <Link href="/login">Login</Link>
+</Button>
+```
+
+## Examples
+
+### With different variants
+
+<ComponentPreview code={demoVariantsCode}>
+  <div className="flex gap-2">
+    <ButtonVariants client:load />
+  </div>
+</ComponentPreview>
+
+### With different sizes
+
+<ComponentPreview code={demoSizesCode}>
+  <div className="flex gap-2">
+    <ButtonSizes client:visible />
+  </div>
+</ComponentPreview>
+
+### Render as Child
+
+<ComponentPreview code={demoAsChildCode}>
+  <div className="flex gap-2">
+    <ButtonAsChild client:visible />
+  </div>
+</ComponentPreview>

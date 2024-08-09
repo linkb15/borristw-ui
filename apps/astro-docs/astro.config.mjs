@@ -12,6 +12,9 @@ export default defineConfig({
       social: {
         github: 'https://github.com/withastro/starlight',
       },
+      components: {
+        Head: './src/layouts/head.astro',
+      },
       sidebar: [
         {
           label: 'Guides',
