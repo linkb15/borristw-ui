@@ -1,0 +1,88 @@
+---
+title: Alert
+description: Displays a callout for user attention.
+---
+
+import {
+  Steps,
+  Tabs,
+  TabItem,
+  Code,
+  LinkCard,
+  CardGrid,
+  Icon,
+  Badge,
+} from '@astrojs/starlight/components';
+
+import { Basic } from '@/components/demo/alert-basic';
+import { Destructive } from '@/components/demo/alert-destructive';
+import { CodeBlockWrapper } from '@/components/code-block-wrapper';
+
+import DocsBadges from '@/components/docs-badges.astro';
+import ComponentPreview from '@/components/component-preview.astro';
+import PackageManagers from '@/components/package-managers/package-managers.astro';
+
+import sourceCode from '@/components/ui/alert.tsx?raw';
+import previewCode from '@/components/demo/alert-basic.tsx?raw';
+import destructiveCode from '@/components/demo/alert-destructive.tsx?raw';
+
+Displays a callout for user attention.
+
+<ComponentPreview code={previewCode}>
+  <Basic client:load />
+</ComponentPreview>
+
+## Installation
+
+<Tabs>
+  <TabItem label="CLI">
+    <PackageManagers pkg="borristw-ui@latest" type="exec" args="add alert" frame="none" />
+  </TabItem>
+
+  <TabItem label="Manual">
+    <Steps>
+      1.  Copy and paste the following code into your project.
+
+          <CodeBlockWrapper client:load>
+            <Code
+              code={sourceCode}
+              lang="tsx"
+            />
+          </CodeBlockWrapper>
+
+      2.  Update the import paths to match your project setup.
+
+    </Steps>
+
+  </TabItem>
+</Tabs>
+
+## Usage
+
+```tsx
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+```
+
+```tsx
+<Alert>
+  <Terminal className="h-4 w-4" />
+  <AlertTitle>Heads up!</AlertTitle>
+  <AlertDescription>
+    You can add components and dependencies to your app using the cli.
+  </AlertDescription>
+</Alert>
+```
+
+## Examples
+
+### Default
+
+<ComponentPreview code={previewCode}>
+  <Basic client:load />
+</ComponentPreview>
+
+### Destructive
+
+<ComponentPreview code={destructiveCode}>
+  <Destructive client:load />
+</ComponentPreview>

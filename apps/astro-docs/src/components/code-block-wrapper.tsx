@@ -26,12 +26,12 @@ export function CodeBlockWrapper({
 
   return (
     <Collapsible open={isOpened} onOpenChange={({ open }) => setIsOpened(open)}>
-      <div className={cn('relative overflow-hidden', className)} {...props}>
-        <CollapsibleContent className="block [--start-height:8rem] data-[state=closed]:max-h-32 overflow-hidden">
+      <div className={cn('relative overflow-hidden [&_.copy_button]:hover:opacity-75', className)} {...props}>
+        <CollapsibleContent className="block  [--start-height:8rem] data-[state=closed]:max-h-32 overflow-hidden">
           <div
             className={cn(
-              '[&_pre]:my-0 [&_pre]:max-h-[650px] [&_pre]:pb-[100px]',
-              !isOpened ? '[&_pre]:overflow-hidden' : '[&_pre]:overflow-auto]',
+              '[&_pre]:my-0 [&_pre]:!max-h-[650px] [&_pre]:pb-[100px] [&_.copy]:z-20',
+              !isOpened ? '[&_pre]:overflow-hidden' : '[&_pre]:overflow-auto',
             )}
           >
             {children}

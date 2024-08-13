@@ -32,20 +32,9 @@ import previewCode from '@/components/demo/button-basic.tsx?raw';
 
 Displays a button or a component that looks like a button.
 
-<Tabs>
-  <TabItem label="Preview">
-    <div className="not-content rounded-sm p-10 flex min-h-[350px] items-center justify-center">
-      <Basic client:load />
-    </div>
-  </TabItem>
-  <TabItem label="Code">
-    <Code
-      class="max-h-[650px] overflow-auto rounded-lg"
-      code={previewCode}
-      lang="tsx"
-    />
-  </TabItem>
-</Tabs>
+<ComponentPreview code={previewCode}>
+  <Basic client:load />
+</ComponentPreview>
 
 ## Installation
 
