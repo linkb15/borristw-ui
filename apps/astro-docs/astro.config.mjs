@@ -10,7 +10,7 @@ export default defineConfig({
     starlight({
       title: 'borristw-ui',
       social: {
-        github: 'https://github.com/withastro/starlight',
+        github: 'https://github.com/linkb15/borristw-ui',
       },
       components: {
         Head: './src/layouts/head.astro',
